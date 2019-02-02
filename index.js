@@ -1,9 +1,15 @@
 const koa = require('koa');
-const app = new koa();
+const koaRouter = require('koa-router');
 
-app.use(() => {
-  this.body = 'HELLO WORLD!';
+const app = new koa();
+const router = new koaRouter();
+
+router.get('test', '/', ctx => {
+  ctx.body = 'Testing Koa router!';
 });
+
+app.use(router.routes())
+  .use(router.allowedMethods());
 
 const PORT = 3000;
 /* eslint-disable-next-line no-useless-escape, no-console */

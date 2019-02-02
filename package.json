@@ -11,5 +11,8 @@
     "url": "git@github.com/grayson073/koa-demo"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
 }

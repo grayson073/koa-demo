@@ -14,10 +14,17 @@ describe('Hello World! / Koa Test', () => {
     expect(res.text).toEqual('Testing Koa router on main route!');
   });
 
-  it('Should throw an error with 500 status code', async() => {
+  it('Should throw an error with 500 status code on /error', async() => {
     const res = await request
       .get('/error');
     expect(res.text).toEqual('Error: We threw one at route: /error');
     expect(res.status).toEqual(500);
+  });
+  
+  it('Should throw an error with 500 status code on /error', async() => {
+    const res = await request
+      .get('/non-existant-route');
+    expect(res.text).toEqual('Not Found');
+    expect(res.status).toEqual(404);
   });
 });
